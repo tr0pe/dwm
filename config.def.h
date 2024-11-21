@@ -58,13 +58,14 @@ static const char *voldown[]  = { "amixer","set","Master", "3%-" };
 static const char *volup[]    = { "amixer","set","Master", "3%+" };
 static const char *volmute[]  = { "amixer","set", "Master", "toggle" };
 static const char *lockscr[]  = { "xtrlock" };
+static const char *brightup[] = { "xbacklight", "-inc", "10" };
+static const char *brightdo[] = { "xbacklight", "-dec", "10" };
+
+
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-        { MODKEY|ShiftMask,             XK_b,      spawn,          {.v = lockscr } },
-        { MODKEY,                       XK_F2,     spawn,          {.v = voldown } },
-        { MODKEY,                       XK_F3,     spawn,          {.v = volup } },
-        { MODKEY,                       XK_F4,     spawn,          {.v = volmute } },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = lockscr } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -104,6 +105,15 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+	/* Keys found on some Internet Keyboards */
+	{ 0,	XF86XK_MonBrightnessUp,		spawn,	{.v = brightup } },
+	{ 0,	XF86XK_MonBrightnessDown,	spawn,	{.v = brightdo } },
+	{ 0,	XF86XK_AudioRaiseVolume,	spawn,	{.v = volup } },
+	{ 0,	XF86XK_AudioLowerVolume,	spawn,	{.v = voldown } },
+	{ 0,	XF86XK_AudioMute,		spawn,	{.v = volmute } },
+
+
 };
 
 /* button definitions */
