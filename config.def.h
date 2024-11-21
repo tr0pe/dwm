@@ -57,14 +57,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *voldown[]  = { "amixer","set","Master", "3%-" };
-static const char *volup[]    = { "amixer","set","Master", "3%+" };
-static const char *volmute[]  = { "amixer","set", "Master", "toggle" };
-static const char *lockscr[]  = { "xtrlock" };
-static const char *brightup[] = { "xbacklight", "-inc", "10" };
-static const char *brightdo[] = { "xbacklight", "-dec", "10" };
-
-
+static const char *voldown[]  = { "amixer", "set", "Master", "3%-", NULL };
+static const char *volup[]    = { "amixer", "set", "Master", "3%+", NULL };
+static const char *volmute[]  = { "amixer", "set", "Master", "toggle", NULL };
+static const char *lockscr[]  = { "xtrlock", NULL};
+static const char *brightup[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brightdo[] = { "xbacklight", "-dec", "10", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
